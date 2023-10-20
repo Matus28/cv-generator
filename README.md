@@ -1,6 +1,6 @@
 # CV-generator
 
-React web application to generate CV.
+React web application to generate CV. This one of the many projects from [TheOdinProject](https://www.theodinproject.com/lessons/node-path-react-new-cv-application)
 
 # React + TypeScript + Vite
 
