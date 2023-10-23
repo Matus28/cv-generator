@@ -1,0 +1,36 @@
+@use "../../style/style" as *;
+
+.wrapper {
+  width: 600px;
+  background-color: $global__accordion-background;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.heading {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: $global__secondary-text;
+  background-color: $global__heading-background;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 1rem;
+
+  svg {
+    scale: 1.7;
+    transition: all 0.4s ease-in-out;
+  }
+
+  svg.open {
+    transform: rotate(180deg);
+  }
+}
+
+.title {
+}
+
+.content {
+  padding: 1rem;
+}
