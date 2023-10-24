@@ -9,6 +9,9 @@
 }
 
 .leftPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   min-width: 590px;
   height: 100%;
   padding: 4rem 1rem;
