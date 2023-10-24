@@ -1,3 +1,3 @@
 export const WorkExperience = (): JSX.Element => {
-  return <></>;
+  return <div>Work Experience</div>;
 };

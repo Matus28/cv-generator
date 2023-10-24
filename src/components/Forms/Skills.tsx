@@ -1,3 +1,3 @@
 export const Skills = (): JSX.Element => {
-  return <></>;
+  return <div>Skills</div>;
 };

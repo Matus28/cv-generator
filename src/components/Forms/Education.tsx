@@ -1,3 +1,3 @@
 export const Education = (): JSX.Element => {
-  return <></>;
+  return <div>Education</div>;
 };

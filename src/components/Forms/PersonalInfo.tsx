@@ -1,3 +1,3 @@
 export const PersonalInfo = (): JSX.Element => {
-  return <></>;
+  return <div>Personal Information</div>;
 };
