@@ -14,17 +14,22 @@
   align-items: center;
   color: $global__secondary-text;
   background-color: $global__heading-background;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-radius: 1rem;
   padding: 1rem;
+  transition: all 1s ease-in-out;
+
+  button {
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+    background-color: $global__main-background;
+    padding: 0.8rem;
+  }
 
   svg {
     scale: 1.7;
-    transition: all 0.4s ease-in-out;
-  }
-
-  svg.open {
     transform: rotate(180deg);
+    transition: all 0.4s ease-in-out;
   }
 }
 
@@ -32,5 +37,30 @@
 }
 
 .content {
-  padding: 1rem;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.open {
+  .heading {
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    transition: all 0.1s ease-in-out;
+  }
+
+  svg {
+    transform: rotate(0deg);
+  }
+
+  .content {
+    height: 100%;
+    padding: 1rem;
+  }
+}
+
+.hidden {
+  height: 0;
+  padding: 0;
 }

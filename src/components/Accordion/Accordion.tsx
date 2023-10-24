@@ -16,15 +16,15 @@ export const Accordion = ({ title, children }: AccordionProps): JSX.Element => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${open ? styles.open : ""}`}>
       <div className={styles.heading}>
-        <div className={styles.title}>{title}</div>
-        <AiOutlineDown
-          className={`${open ? styles.open : ""}`}
-          onClick={handleClick}
-        />
+        <div className={styles.title}>
+          <h4>{title}</h4>
+        </div>
+        <button onClick={handleClick}>
+          <AiOutlineDown />
+        </button>
       </div>
-      <hr />
       <div className={styles.content}>{children}</div>
     </div>
   );
