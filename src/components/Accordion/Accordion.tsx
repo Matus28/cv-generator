@@ -1,28 +1,37 @@
 import * as React from "react";
-// import { IoIosArrowDropdown } from "react-icons/io";
-import { AiOutlineDown } from "react-icons/ai";
+import { IoIosArrowUp } from "react-icons/io";
 import styles from "./Accordion.module.scss";
 
 interface AccordionProps {
   title: string;
+  icon?: React.ReactNode;
   children: React.ReactNode;
 }
 
-export const Accordion = ({ title, children }: AccordionProps): JSX.Element => {
+export const Accordion = ({
+  title,
+  icon,
+  children,
+}: AccordionProps): JSX.Element => {
   const [open, setOpen] = React.useState<boolean>(false);
 
-  const handleClick = (): void => {
+  const handleOpenAccordion = (): void => {
     setOpen(!open);
   };
 
   return (
     <div className={`${styles.wrapper} ${open ? styles.open : ""}`}>
       <div className={styles.heading}>
-        <div className={styles.title}>
+        {icon && <div className={styles.icon}>{icon}</div>}
+        <div
+          className={styles.title}
+          onClick={handleOpenAccordion}
+          tabIndex={1}
+        >
           <h4>{title}</h4>
         </div>
-        <button onClick={handleClick}>
-          <AiOutlineDown />
+        <button onClick={handleOpenAccordion}>
+          <IoIosArrowUp />
         </button>
       </div>
       <div className={styles.content}>{children}</div>

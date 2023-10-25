@@ -1,46 +1,61 @@
 @use "../../style/style" as *;
 
 .wrapper {
+  max-height: 73.92px;
   width: 600px;
   background-color: $global__accordion-background;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
 }
 
 .heading {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
   color: $global__secondary-text;
   background-color: $global__heading-background;
   border-radius: 1rem;
   padding: 1rem;
   transition: all 1s ease-in-out;
 
+  .icon {
+    display: flex;
+    align-items: center;
+    scale: 1.7;
+  }
+
+  .title {
+    cursor: pointer;
+  }
+
   button {
+    margin-left: auto;
     border: none;
     border-radius: 0.8rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
     background-color: $global__main-background;
+    color: $global__secondary-text;
     padding: 0.8rem;
-  }
+    cursor: pointer;
 
-  svg {
-    scale: 1.7;
-    transform: rotate(180deg);
-    transition: all 0.4s ease-in-out;
+    svg {
+      scale: 1.7;
+      transition: all 0.4s ease-in-out;
+    }
   }
-}
-
-.title {
 }
 
 .content {
-  padding: 0;
-  height: 0;
+  padding: 1rem;
+}
+
+.wrapper.open {
+  max-height: 1300px;
   overflow: hidden;
-  transition: all 0.4s ease-in-out;
 }
 
 .open {
@@ -50,17 +65,9 @@
     transition: all 0.1s ease-in-out;
   }
 
-  svg {
-    transform: rotate(0deg);
+  button {
+    svg {
+      transform: rotate(180deg);
+    }
   }
-
-  .content {
-    height: 100%;
-    padding: 1rem;
-  }
-}
-
-.hidden {
-  height: 0;
-  padding: 0;
 }
