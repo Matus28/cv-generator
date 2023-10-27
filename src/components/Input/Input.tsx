@@ -9,7 +9,9 @@ interface InputProps {
   label: string;
   elementType: string;
   value: string;
+  file: File | null;
   onChange: Dispatch<SetStateAction<string>>;
+  onChangeFile?: Dispatch<SetStateAction<File | null>>;
   isRequired?: boolean;
 }
 
@@ -38,7 +40,9 @@ export const Input = (props: InputProps): JSX.Element => {
         <PhotoDialog
           label={props.label}
           value={props.value}
+          file={props.file}
           onChange={props.onChange}
+          onChangeFile={props.onChangeFile}
         />
       )}
     </div>
