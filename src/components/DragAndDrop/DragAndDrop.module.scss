@@ -1,0 +1,35 @@
+@use "../../style/style" as *;
+
+.wrapper {
+}
+
+.input {
+  fieldset {
+    border: none;
+  }
+  display: none;
+}
+
+button.profile {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 2px dashed $global__light-grey;
+  max-width: 400px;
+  width: 400px;
+  height: 200px;
+
+  &:hover {
+    border: 2px dashed $global__primary-text;
+  }
+
+  img {
+    width: 120px;
+  }
+
+  span {
+    font-weight: 800;
+  }
+}
