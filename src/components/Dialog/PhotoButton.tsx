@@ -17,7 +17,11 @@ export const PhotoButton = (props: PhotoButtonProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       <Button type="button" onClick={handleClick}>
-        <img src={props.value} alt="Photo of cv applicant." />
+        <img
+          src={props.value}
+          alt="Photo of cv applicant."
+          className={`${props.value === DefaultImage ? styles.default : ""}`}
+        />
         {props.value === DefaultImage && <p>Add photo (optional)</p>}
       </Button>
     </div>

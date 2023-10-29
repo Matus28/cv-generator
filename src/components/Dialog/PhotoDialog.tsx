@@ -13,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { PhotoButton } from "./PhotoButton";
 import { TransitionProps } from "@mui/material/transitions";
 import styles from "./PhotoDialog.module.scss";
+import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 
 interface PhotoDialogProps {
   label: string;
@@ -24,7 +25,7 @@ interface PhotoDialogProps {
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
-    children: React.ReactElement<any, any>;
+    children: React.ReactElement<any, any>; // eslint-disable-line
   },
   ref: React.Ref<unknown>
 ) {
@@ -39,28 +40,6 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
   };
 
   const handleClose = (): void => {
-    setOpen(false);
-  };
-
-  const handleChangeFile = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    if (event.target.files && props.onChangeFile) {
-      const file = event.target.files[0];
-      props.onChangeFile(file);
-    }
-  };
-
-  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-
-    const input = event.currentTarget.elements.namedItem(
-      "photo"
-    ) as HTMLInputElement;
-    if (input.files && props.onChangeFile) {
-      props.onChange(URL.createObjectURL(input?.files[0]));
-    }
-
     setOpen(false);
   };
 
@@ -81,29 +60,13 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
         <DialogTitle>{"Upload Photo"}</DialogTitle>
         <IconButton
           aria-label="close"
+          className={styles.close}
           onClick={handleClose}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
         >
           <CloseIcon />
         </IconButton>
         <DialogContent>
-          <form id="photo-form" onSubmit={onSubmitHandler}>
-            <TextField
-              className={styles.input}
-              id="standard-basic"
-              name="photo"
-              type="file"
-              onChange={handleChangeFile}
-              inputProps={{
-                accept: "image/*",
-              }}
-            />
-          </form>
+          <DragAndDrop onChangeFile={props.onChangeFile} onSetOpen={setOpen} />
         </DialogContent>
         <DialogActions>
           <Button type="submit" form="photo-form">
