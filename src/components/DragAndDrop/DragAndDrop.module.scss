@@ -10,13 +10,14 @@
   display: none;
 }
 
-button.profile {
+.profile {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   border: 2px dashed $global__light-grey;
+  border-radius: 0.5rem;
   max-width: 400px;
   width: 400px;
   height: 200px;
@@ -25,11 +26,40 @@ button.profile {
     border: 2px dashed $global__primary-text;
   }
 
-  img {
-    width: 120px;
-  }
+  button {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
 
-  span {
-    font-weight: 800;
+    img {
+      width: 120px;
+    }
+
+    span {
+      font-weight: 800;
+    }
+  }
+}
+
+.profile.uploaded {
+  background-color: rgba(0, 0, 0, 0.829);
+}
+
+.form {
+  position: relative;
+
+  .placement {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
   }
 }
