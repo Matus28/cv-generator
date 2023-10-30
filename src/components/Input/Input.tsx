@@ -27,6 +27,7 @@ export const Input = (props: InputProps): JSX.Element => {
       {props.elementType === "input" && (
         <TextField
           id={props.id}
+          className={styles.textfield}
           type={props.type}
           value={props.value}
           required={props.isRequired}
