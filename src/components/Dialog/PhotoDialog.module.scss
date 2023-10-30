@@ -12,6 +12,13 @@
 .dialog {
 }
 
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
 // .input {
 //   fieldset {
 //     border: none;

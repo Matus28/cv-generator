@@ -9,6 +9,7 @@ import {
   Slide,
   TextField,
 } from "@mui/material";
+import UserProfile from "../../assets/user-profile-icon.svg";
 import CloseIcon from "@mui/icons-material/Close";
 import { PhotoButton } from "./PhotoButton";
 import { TransitionProps } from "@mui/material/transitions";
@@ -34,13 +35,19 @@ const Transition = React.forwardRef(function Transition(
 
 export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
   const [open, setOpen] = React.useState(false);
+  const [preview, setPreview] = React.useState<string>(UserProfile);
 
   const handleClickOpen = (): void => {
     setOpen(true);
   };
 
   const handleClose = (): void => {
+    setPreview(UserProfile);
     setOpen(false);
+  };
+
+  const handleExternImage = (): void => {
+    setPreview();
   };
 
   return (
@@ -65,8 +72,23 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
         >
           <CloseIcon />
         </IconButton>
-        <DialogContent>
-          <DragAndDrop onChangeFile={props.onChangeFile} onSetOpen={setOpen} />
+        <DialogContent className={styles.content}>
+          <DragAndDrop
+            preview={preview}
+            value={props.value}
+            onSetPreview={setPreview}
+            onChange={props.onChange}
+            onChangeFile={props.onChangeFile}
+            onSetOpen={setOpen}
+          />
+          <h4>OR</h4>
+          <TextField
+            className={styles.url}
+            id="standard-basic"
+            name="photo-url"
+            type="text"
+            onChange={handleExternImage}
+          ></TextField>
         </DialogContent>
         <DialogActions>
           <Button type="submit" form="photo-form">
