@@ -19,9 +19,7 @@ import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 interface PhotoDialogProps {
   label: string;
   value: string;
-  file: File | null;
-  onChange: React.Dispatch<React.SetStateAction<string>>;
-  onChangeFile: React.Dispatch<React.SetStateAction<File | null>> | undefined;
+  onChange: (photo: string) => void;
 }
 
 const Transition = React.forwardRef(function Transition(
@@ -46,17 +44,15 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
     setOpen(false);
   };
 
-  const handleExternImage = (): void => {
-    setPreview();
+  const handleDragAndDrop = (photo: string): void => {
+    props.onChange(photo);
   };
+
+  const handleExternImage = (): void => {};
 
   return (
     <div className={styles.wrapper}>
-      <PhotoButton
-        value={props.value}
-        file={props.file}
-        onOpen={handleClickOpen}
-      />
+      <PhotoButton value={props.value} onOpen={handleClickOpen} />
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -77,8 +73,7 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
             preview={preview}
             value={props.value}
             onSetPreview={setPreview}
-            onChange={props.onChange}
-            onChangeFile={props.onChangeFile}
+            onChange={handleDragAndDrop}
             onSetOpen={setOpen}
           />
           <h4>OR</h4>

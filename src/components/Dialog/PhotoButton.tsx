@@ -5,7 +5,6 @@ import { Button } from "@mui/material";
 
 interface PhotoButtonProps {
   value: string;
-  file: File | null;
   onOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
