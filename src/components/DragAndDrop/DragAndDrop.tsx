@@ -8,7 +8,6 @@ interface DragAndDropProps {
   value: string;
   onSetPreview: React.Dispatch<React.SetStateAction<string>>;
   onChange: React.Dispatch<React.SetStateAction<string>>;
-  onChangeFile: React.Dispatch<React.SetStateAction<File | null>> | undefined;
   onSetOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -41,9 +40,8 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
   const handleChangeFile = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    if (event.target.files && props.onChangeFile) {
+    if (event.target.files) {
       const file = event.target.files[0];
-      props.onChangeFile(file);
       props.onSetPreview(URL.createObjectURL(file));
     }
   };
