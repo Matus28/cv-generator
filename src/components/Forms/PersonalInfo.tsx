@@ -54,11 +54,10 @@ export const PersonalInfo = (): JSX.Element => {
           (inputConfig: inputConfigType, index: number) => (
             <React.Fragment key={index}>
               {inputConfig.newSection && (
-                <h2 className={inputConfig.category}>
+                <h2 className={styles[inputConfig.category]}>
                   {inputConfig.newSection}
                 </h2>
               )}
-              {inputConfig.newSection && <hr />}
               <div id={styles[inputConfig.id]}>
                 <Input
                   key={inputConfig.id}
