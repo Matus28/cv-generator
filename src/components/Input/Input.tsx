@@ -10,6 +10,7 @@ interface InputProps {
   value: string;
   onChange: (fieldName: string, value: string) => void;
   isRequired?: boolean;
+  isEditMode: boolean;
 }
 
 export const Input = (props: InputProps): JSX.Element => {
@@ -37,6 +38,7 @@ export const Input = (props: InputProps): JSX.Element => {
           value={props.value}
           required={props.isRequired}
           onChange={handleChange}
+          disabled={!props.isEditMode}
         />
       )}
       {props.elementType === "textarea" && (
@@ -48,6 +50,7 @@ export const Input = (props: InputProps): JSX.Element => {
           required={props.isRequired}
           onChange={handleChange}
           minRows={3}
+          disabled={!props.isEditMode}
         />
       )}
       {props.elementType === "image" && (
@@ -55,6 +58,7 @@ export const Input = (props: InputProps): JSX.Element => {
           label={props.label}
           value={props.value}
           onChange={(newValue: string) => handleChangePhoto(props.id, newValue)}
+          isEditMode={props.isEditMode}
         />
       )}
     </div>
