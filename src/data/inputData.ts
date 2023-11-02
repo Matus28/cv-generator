@@ -93,7 +93,7 @@ export const PersonalInfoInputs = [
     id: "description",
     type: "text",
     label: "Short Description",
-    elementType: "input",
+    elementType: "textarea",
     isRequired: false,
     category: "description",
   },
