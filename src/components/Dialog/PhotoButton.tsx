@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 interface PhotoButtonProps {
   value: string;
   onOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isEditMode: boolean;
 }
 
 export const PhotoButton = (props: PhotoButtonProps): JSX.Element => {
@@ -15,7 +16,7 @@ export const PhotoButton = (props: PhotoButtonProps): JSX.Element => {
 
   return (
     <div className={styles.wrapper}>
-      <Button type="button" onClick={handleClick}>
+      <Button type="button" onClick={handleClick} disabled={!props.isEditMode}>
         <img
           src={props.value}
           alt="Photo of cv applicant."

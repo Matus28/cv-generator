@@ -7,7 +7,7 @@ interface DragAndDropProps {
   preview: string;
   value: string;
   onSetPreview: React.Dispatch<React.SetStateAction<string>>;
-  onChange: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (photo: string) => void;
   onSetOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -16,9 +16,7 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const handleDrag = (
-    event: React.DragEvent<HTMLFormElement | HTMLDivElement>
-  ): void => {
+  const handleDrag = (event: React.DragEvent<HTMLDivElement>): void => {
     event.preventDefault();
     event.stopPropagation();
     if (event.type === "dragenter" || event.type === "dragover") {
@@ -46,23 +44,23 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
     }
   };
 
-  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
+  // const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
+  //   event.preventDefault();
 
-    // const input = event.currentTarget.elements.namedItem(
-    //   "photo"
-    // ) as HTMLInputElement;
-    // if (input.files && props.onChangeFile) {
-    //   console.log(input?.files);
-    //   props.onChange(URL.createObjectURL(input?.files[0]));
-    // }
-    if (props.preview !== UserProfile) {
-      props.onChange(props.preview);
-    }
+  //   // const input = event.currentTarget.elements.namedItem(
+  //   //   "photo"
+  //   // ) as HTMLInputElement;
+  //   // if (input.files && props.onChangeFile) {
+  //   //   console.log(input?.files);
+  //   //   props.onChange(URL.createObjectURL(input?.files[0]));
+  //   // }
+  //   if (props.preview !== UserProfile) {
+  //     props.onChange(props.preview);
+  //   }
 
-    props.onSetPreview(UserProfile);
-    props.onSetOpen(false);
-  };
+  //   props.onSetPreview(UserProfile);
+  //   props.onSetOpen(false);
+  // };
 
   const handleButtonClick = (): void => {
     const input = inputRef.current as HTMLInputElement;
@@ -70,12 +68,7 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
   };
 
   return (
-    <form
-      id="photo-form"
-      className={styles.form}
-      onDragEnter={handleDrag}
-      onSubmit={onSubmitHandler}
-    >
+    <>
       <TextField
         className={styles.input}
         id="standard-basic"
@@ -112,6 +105,6 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
           onDrop={handleDrop}
         ></div>
       )}
-    </form>
+    </>
   );
 };

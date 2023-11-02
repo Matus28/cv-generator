@@ -20,6 +20,7 @@ interface PhotoDialogProps {
   label: string;
   value: string;
   onChange: (photo: string) => void;
+  isEditMode: boolean;
 }
 
 const Transition = React.forwardRef(function Transition(
@@ -34,6 +35,7 @@ const Transition = React.forwardRef(function Transition(
 export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
   const [open, setOpen] = React.useState(false);
   const [preview, setPreview] = React.useState<string>(UserProfile);
+  const [externURL, setExternURL] = React.useState<string>("");
 
   const handleClickOpen = (): void => {
     setOpen(true);
@@ -48,11 +50,28 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
     props.onChange(photo);
   };
 
-  const handleExternImage = (): void => {};
+  const handleChangeURL = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setExternURL(event.currentTarget.value);
+  };
+
+  const handleExternImage = (): void => {
+    setPreview(externURL);
+  };
+
+  const handleSave = (): void => {
+    props.onChange(preview);
+    setOpen(false);
+  };
 
   return (
     <div className={styles.wrapper}>
-      <PhotoButton value={props.value} onOpen={handleClickOpen} />
+      <PhotoButton
+        value={props.value}
+        onOpen={handleClickOpen}
+        isEditMode={props.isEditMode}
+      />
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -77,18 +96,23 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
             onSetOpen={setOpen}
           />
           <h4>OR</h4>
-          <TextField
-            className={styles.url}
-            id="standard-basic"
-            name="photo-url"
-            type="text"
-            onChange={handleExternImage}
-          ></TextField>
+          <div className={styles.extern}>
+            <label>Extern URL</label>
+            <div className={styles.link}>
+              <TextField
+                id="extern-url"
+                className={styles.textfield}
+                name="externURL"
+                type="text"
+                value={externURL}
+                onChange={handleChangeURL}
+              />
+              <Button onClick={handleExternImage}>Load</Button>
+            </div>
+          </div>
         </DialogContent>
         <DialogActions>
-          <Button type="submit" form="photo-form">
-            Save
-          </Button>
+          <Button onClick={handleSave}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
