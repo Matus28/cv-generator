@@ -8,15 +8,15 @@
     gap: 1rem;
 
     #firstName {
-      grid-column: 1 / span 2;
+      grid-column: 1 / span 3;
       grid-row: 1 / span 1;
     }
     #lastName {
-      grid-column: 1 / span 2;
+      grid-column: 1 / span 3;
       grid-row: 2 / span 1;
     }
     #photo {
-      grid-column: 3 / span 2;
+      grid-column: 4 / span 1;
       grid-row: 1 / span 2;
     }
     #email {
@@ -83,6 +83,14 @@
     }
     .edit {
       grid-column: 2 / span 2;
+      grid-row: 13 / span 1;
+    }
+    .save {
+      grid-column: 1 / span 2;
+      grid-row: 13 / span 1;
+    }
+    .cancel {
+      grid-column: 3 / span 2;
       grid-row: 13 / span 1;
     }
   }

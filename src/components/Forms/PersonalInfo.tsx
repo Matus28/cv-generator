@@ -34,10 +34,22 @@ interface inputConfigType {
 export const PersonalInfo = (): JSX.Element => {
   const [personalInfo, setPersonalInfo] =
     React.useState<PersonalInformation>(PersonalInfoInit);
+  const [prevPersonalInfo, setPrevPersonalInfo] =
+    React.useState<PersonalInformation>(PersonalInfoInit);
+  const [editMode, setEditMode] = React.useState<boolean>(false);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(personalInfo);
+    console.log("wiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+
+    if (editMode) {
+      console.log(personalInfo);
+      setEditMode(false);
+      return;
+    }
+    setPrevPersonalInfo(personalInfo);
+
+    setEditMode(true);
   };
 
   const handleInputChange = (fieldName: string, value: string): void => {
@@ -45,6 +57,11 @@ export const PersonalInfo = (): JSX.Element => {
       ...personalInfo,
       [fieldName]: value,
     });
+  };
+
+  const handleCancelEdition = (): void => {
+    setEditMode(false);
+    setPersonalInfo(prevPersonalInfo);
   };
 
   return (
@@ -70,14 +87,26 @@ export const PersonalInfo = (): JSX.Element => {
                   }
                   onChange={handleInputChange}
                   isRequired={inputConfig.isRequired}
+                  isEditMode={editMode}
                 />
               </div>
             </React.Fragment>
           )
         )}
-        <Button type="submit" className={styles.edit}>
-          Edit
-        </Button>
+        {editMode ? (
+          <>
+            <Button type="submit" className={styles.save}>
+              Save
+            </Button>
+            <Button className={styles.cancel} onClick={handleCancelEdition}>
+              Cancel
+            </Button>
+          </>
+        ) : (
+          <Button type="submit" className={styles.edit}>
+            Edit
+          </Button>
+        )}
       </form>
     </div>
   );
