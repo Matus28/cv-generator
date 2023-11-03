@@ -21,7 +21,6 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
   ): void => {
     event.preventDefault();
     event.stopPropagation();
-    console.log("draaaaaaaaaaaaaaaaaaaaaaaaaaag");
     if (event.type === "dragenter" || event.type === "dragover") {
       setDragActive(true);
     } else if (event.type === "dragleave") {
@@ -32,9 +31,7 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
   const handleDrop = (event: React.DragEvent<HTMLDivElement>): void => {
     event.preventDefault();
     event.stopPropagation();
-    console.log("wiiiiiiiiiiiiiiiiii");
     if (event.dataTransfer.files) {
-      console.log("heeeeeeeeeeeeeeeeeere");
       props.onSetPreview(URL.createObjectURL(event.dataTransfer.files[0]));
     }
     setDragActive(false);
@@ -48,24 +45,6 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
       props.onSetPreview(URL.createObjectURL(file));
     }
   };
-
-  // const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
-  //   event.preventDefault();
-
-  //   // const input = event.currentTarget.elements.namedItem(
-  //   //   "photo"
-  //   // ) as HTMLInputElement;
-  //   // if (input.files && props.onChangeFile) {
-  //   //   console.log(input?.files);
-  //   //   props.onChange(URL.createObjectURL(input?.files[0]));
-  //   // }
-  //   if (props.preview !== UserProfile) {
-  //     props.onChange(props.preview);
-  //   }
-
-  //   props.onSetPreview(UserProfile);
-  //   props.onSetOpen(false);
-  // };
 
   const handleButtonClick = (): void => {
     const input = inputRef.current as HTMLInputElement;

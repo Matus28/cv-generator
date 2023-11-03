@@ -40,7 +40,6 @@ export const PersonalInfo = (): JSX.Element => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log("wiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
 
     if (editMode) {
       console.log(personalInfo);
