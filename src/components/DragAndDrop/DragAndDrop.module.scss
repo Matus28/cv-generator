@@ -1,8 +1,5 @@
 @use "../../style/style" as *;
 
-.wrapper {
-}
-
 .input {
   fieldset {
     border: none;
@@ -49,7 +46,7 @@
   background-color: rgba(0, 0, 0, 0.829);
 }
 
-.form {
+.wrapper {
   position: relative;
 
   .placement {

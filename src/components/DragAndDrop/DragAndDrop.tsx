@@ -16,9 +16,12 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const handleDrag = (event: React.DragEvent<HTMLDivElement>): void => {
+  const handleDrag = (
+    event: React.DragEvent<HTMLFormElement> | React.DragEvent<HTMLDivElement>
+  ): void => {
     event.preventDefault();
     event.stopPropagation();
+    console.log("draaaaaaaaaaaaaaaaaaaaaaaaaaag");
     if (event.type === "dragenter" || event.type === "dragover") {
       setDragActive(true);
     } else if (event.type === "dragleave") {
@@ -29,7 +32,9 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
   const handleDrop = (event: React.DragEvent<HTMLDivElement>): void => {
     event.preventDefault();
     event.stopPropagation();
+    console.log("wiiiiiiiiiiiiiiiiii");
     if (event.dataTransfer.files) {
+      console.log("heeeeeeeeeeeeeeeeeere");
       props.onSetPreview(URL.createObjectURL(event.dataTransfer.files[0]));
     }
     setDragActive(false);
@@ -68,7 +73,7 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
   };
 
   return (
-    <>
+    <div className={styles.wrapper} onDragEnter={handleDrag}>
       <TextField
         className={styles.input}
         id="standard-basic"
@@ -105,6 +110,6 @@ export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
           onDrop={handleDrop}
         ></div>
       )}
-    </>
+    </div>
   );
 };
