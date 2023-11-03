@@ -18,7 +18,7 @@ export const PersonalInfoInputs = [
   {
     id: "photo",
     type: "file",
-    label: "Photo",
+    label: "",
     elementType: "image",
     isRequired: false,
     category: "",
