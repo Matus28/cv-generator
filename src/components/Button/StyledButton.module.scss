@@ -1,0 +1,16 @@
+@use "../../style/style" as *;
+
+.button {
+  border-radius: 0.3rem;
+  color: $global__secondary-text;
+  background-color: $global__secondary-text-transparent;
+  width: 100%;
+}
+
+.button.small {
+  width: 2rem;
+}
+
+.button:hover {
+  box-shadow: 0 0 0.5rem $global__secondary-text;
+}
