@@ -7,7 +7,7 @@ interface InputProps {
   type: string;
   label: string;
   elementType: string;
-  value: string;
+  value: string | number;
   onChange: (fieldName: string, value: string) => void;
   isRequired?: boolean;
   isEditMode: boolean;
@@ -56,7 +56,7 @@ export const Input = (props: InputProps): JSX.Element => {
       {props.elementType === "image" && (
         <PhotoDialog
           label={props.label}
-          value={props.value}
+          value={props.value.toString()}
           onChange={(newValue: string) => handleChangePhoto(props.id, newValue)}
           isEditMode={props.isEditMode}
         />
