@@ -2,9 +2,9 @@ import * as React from "react";
 import { Input } from "../Input/Input";
 import DefaultImage from "../../assets/upload-icon.svg";
 import styles from "./PersonalInfo.module.scss";
-import { PersonalInformation } from "../../types/types";
+import { PersonalInfoType } from "../../types/types";
 import { PersonalInfoInputs } from "../../data/inputData";
-import { Button } from "@mui/material";
+import { StyledButton } from "../Button/StyledButton";
 
 const PersonalInfoInit = {
   firstName: "",
@@ -31,11 +31,16 @@ interface inputConfigType {
   category: string;
 }
 
-export const PersonalInfo = (): JSX.Element => {
-  const [personalInfo, setPersonalInfo] =
-    React.useState<PersonalInformation>(PersonalInfoInit);
+type PersonalInfoProps = {
+  data: PersonalInfoType;
+};
+
+export const PersonalInfo = ({ data }: PersonalInfoProps): JSX.Element => {
+  const [personalInfo, setPersonalInfo] = React.useState<PersonalInfoType>(
+    data ?? PersonalInfoInit
+  );
   const [prevPersonalInfo, setPrevPersonalInfo] =
-    React.useState<PersonalInformation>(PersonalInfoInit);
+    React.useState<PersonalInfoType>(data ?? PersonalInfoInit);
   const [editMode, setEditMode] = React.useState<boolean>(false);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -81,9 +86,7 @@ export const PersonalInfo = (): JSX.Element => {
                   type={inputConfig.type}
                   label={inputConfig.label}
                   elementType={inputConfig.elementType}
-                  value={
-                    personalInfo[inputConfig.id as keyof PersonalInformation]
-                  }
+                  value={personalInfo[inputConfig.id as keyof PersonalInfoType]}
                   onChange={handleInputChange}
                   isRequired={inputConfig.isRequired}
                   isEditMode={editMode}
@@ -92,20 +95,16 @@ export const PersonalInfo = (): JSX.Element => {
             </React.Fragment>
           )
         )}
-        {editMode ? (
-          <>
-            <Button type="submit" className={styles.save}>
-              Save
-            </Button>
-            <Button className={styles.cancel} onClick={handleCancelEdition}>
-              Cancel
-            </Button>
-          </>
-        ) : (
-          <Button type="submit" className={styles.edit}>
-            Edit
-          </Button>
-        )}
+        <div className={styles.control}>
+          {editMode ? (
+            <>
+              <StyledButton type="submit">Save</StyledButton>
+              <StyledButton onClick={handleCancelEdition}>Cancel</StyledButton>
+            </>
+          ) : (
+            <StyledButton type="submit">Edit</StyledButton>
+          )}
+        </div>
       </form>
     </div>
   );

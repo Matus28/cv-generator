@@ -81,16 +81,12 @@
       grid-column: 1 / span 4;
       grid-row: 10 / span 3;
     }
-    .edit {
-      grid-column: 2 / span 2;
-      grid-row: 13 / span 1;
-    }
-    .save {
-      grid-column: 1 / span 2;
-      grid-row: 13 / span 1;
-    }
-    .cancel {
-      grid-column: 3 / span 2;
+    .control {
+      display: flex;
+      justify-items: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      grid-column: 1 / span 4;
       grid-row: 13 / span 1;
     }
   }
