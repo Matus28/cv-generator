@@ -30,7 +30,7 @@ export const Accordion = ({
         >
           <h4>{title}</h4>
         </div>
-        <button onClick={handleOpenAccordion}>
+        <button className={styles.arrow} onClick={handleOpenAccordion}>
           <IoIosArrowUp />
         </button>
       </div>
