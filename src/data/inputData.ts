@@ -98,3 +98,54 @@ export const PersonalInfoInputs = [
     category: "description",
   },
 ];
+
+export const EducationInputs = [
+  {
+    id: "institution",
+    type: "text",
+    label: "Institution",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+  {
+    id: "department",
+    type: "text",
+    label: "department",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+  {
+    id: "degreeType",
+    type: "text",
+    label: "Degree type",
+    elementType: "input",
+    isRequired: false,
+    category: "",
+  },
+  {
+    id: "city",
+    type: "text",
+    label: "City",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+  {
+    id: "start",
+    type: "text",
+    label: "Start",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+  {
+    id: "end",
+    type: "text",
+    label: "End",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+];
