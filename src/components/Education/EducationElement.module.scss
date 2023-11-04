@@ -1,0 +1,36 @@
+@use "../../style/style" as *;
+
+.element {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid $global__light-grey;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+
+  .buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem;
+
+    .edit,
+    .remove {
+      border: 1px solid $global__secondary-text;
+      border-radius: 0.3rem;
+      color: $global__secondary-text;
+    }
+
+    .edit:hover,
+    .remove:hover {
+      box-shadow: 0 0 0.5rem $global__secondary-text;
+    }
+  }
+}
+
+.element:not(last-child) {
+  margin-bottom: 1rem;
+}
