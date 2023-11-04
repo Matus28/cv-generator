@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -15,6 +14,7 @@ import { PhotoButton } from "./PhotoButton";
 import { TransitionProps } from "@mui/material/transitions";
 import styles from "./PhotoDialog.module.scss";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
+import { StyledButton } from "../Button/StyledButton";
 
 interface PhotoDialogProps {
   label: string;
@@ -107,12 +107,14 @@ export const PhotoDialog = (props: PhotoDialogProps): JSX.Element => {
                 value={externURL}
                 onChange={handleChangeURL}
               />
-              <Button onClick={handleExternImage}>Load</Button>
+              <StyledButton size="small" onClick={handleExternImage}>
+                Load
+              </StyledButton>
             </div>
           </div>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleSave}>Save</Button>
+          <StyledButton onClick={handleSave}>Save</StyledButton>
         </DialogActions>
       </Dialog>
     </div>
