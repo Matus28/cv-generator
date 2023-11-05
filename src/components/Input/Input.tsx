@@ -1,4 +1,5 @@
 import { PhotoDialog } from "../Dialog/PhotoDialog";
+import { StyledSelect } from "../Select/StyledSelect";
 import styles from "./Input.module.scss";
 import { TextField, TextareaAutosize } from "@mui/material";
 
@@ -8,7 +9,7 @@ interface InputProps {
   label: string;
   elementType: string;
   value: string | number;
-  onChange: (fieldName: string, value: string) => void;
+  onChange: (fieldName: string, value: string | number) => void;
   isRequired?: boolean;
   isEditMode: boolean;
 }
@@ -24,6 +25,10 @@ export const Input = (props: InputProps): JSX.Element => {
 
   const handleChangePhoto = (fieldName: string, newValue: string): void => {
     props.onChange(fieldName, newValue);
+  };
+
+  const handleChangeDate = (newValue: number): void => {
+    props.onChange(props.id, newValue);
   };
 
   return (
@@ -59,6 +64,13 @@ export const Input = (props: InputProps): JSX.Element => {
           value={props.value.toString()}
           onChange={(newValue: string) => handleChangePhoto(props.id, newValue)}
           isEditMode={props.isEditMode}
+        />
+      )}
+      {props.elementType === "select" && (
+        <StyledSelect
+          type={props.type}
+          value={props.value}
+          onChange={handleChangeDate}
         />
       )}
     </div>
