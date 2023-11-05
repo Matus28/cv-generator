@@ -8,7 +8,7 @@ import { Input } from "../Input/Input";
 type EducationFormProps = {
   data: EducationType;
   cancel: () => void;
-  onChange: (fieldName: string, value: string) => void;
+  onChange: (fieldName: string, value: string | number) => void;
   onSave: () => void;
 };
 
