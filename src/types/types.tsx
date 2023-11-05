@@ -19,8 +19,10 @@ export interface EducationType {
   department: string;
   degreeType: string;
   city: string;
-  start: number;
-  end: number;
+  startMonth: number;
+  startYear: number;
+  endMonth: number;
+  endYear: number;
 }
 
 export interface UserDataType {
