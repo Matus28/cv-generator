@@ -42,14 +42,19 @@ export const Education = ({ data }: EducationProps): JSX.Element => {
       department: "",
       degreeType: "",
       city: "",
-      start: -1,
-      end: -1,
+      startYear: new Date().getFullYear(),
+      startMonth: -1,
+      endYear: new Date().getFullYear(),
+      endMonth: -1,
     });
 
     setMode("add");
   };
 
-  const handleInputChange = (fieldName: string, value: string): void => {
+  const handleInputChange = (
+    fieldName: string,
+    value: string | number
+  ): void => {
     if (editedEducation) {
       setEditedEducation({
         ...editedEducation,
