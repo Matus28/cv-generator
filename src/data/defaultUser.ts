@@ -15,7 +15,7 @@ export const defaultUserData = {
   },
   education: [
     {
-      id: 1,
+      id: "1",
       institution: "Slovak University of Technology in Bratislava",
       department: "Automation and Informatics of Machines an Processes",
       degreeType: "Master degree",
@@ -26,7 +26,7 @@ export const defaultUserData = {
       endYear: 2017,
     },
     {
-      id: 2,
+      id: "2",
       institution: "Slovak University of Technology in Bratislava",
       department: "Automation and Informatics of Machines an Processes",
       degreeType: "Bachelor degree",
@@ -37,7 +37,7 @@ export const defaultUserData = {
       endYear: 2015,
     },
     {
-      id: 3,
+      id: "3",
       institution: "Stredna Priemyselna Skola Technicka",
       department: "Technical lyceum",
       degreeType: "High School Graduation",
@@ -46,6 +46,21 @@ export const defaultUserData = {
       startYear: 2015,
       endMonth: 0,
       endYear: 2009,
+    },
+  ],
+  workExperience: [
+    {
+      id: "a1",
+      employer: "Process Automation Solutions",
+      title: "Industrial robot programmer",
+      startMonth: 9,
+      startYear: 2017,
+      endMonth: 8,
+      endYear: 2022,
+      description: `Prepare offline programs for robots.
+      Commissioning an industrial robot on site.
+      Online robot programming on site.
+      Creating final documentation for customers.`,
     },
   ],
 };
