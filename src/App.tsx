@@ -25,7 +25,7 @@ const App = (): JSX.Element => {
           <Education data={userData.education} />
         </Accordion>
         <Accordion title="Work Experience" icon={<MdOutlineWork />}>
-          <WorkExperience />
+          <WorkExperience data={userData.workExperience} />
         </Accordion>
         <Accordion title="Skills" icon={<BsFillMouse2Fill />}>
           <Skills />
