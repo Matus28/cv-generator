@@ -25,7 +25,19 @@ export interface EducationType {
   endYear: number;
 }
 
+export interface WorkExperienceType {
+  id: string;
+  employer: string;
+  title: string;
+  startMonth: number;
+  startYear: number;
+  endMonth: number;
+  endYear: number;
+  description: string;
+}
+
 export interface UserDataType {
   personalInformation: PersonalInfoType;
   education: EducationType[];
+  workExperience: WorkExperienceType[];
 }
