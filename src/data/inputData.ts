@@ -165,3 +165,62 @@ export const EducationInputs = [
     category: "",
   },
 ];
+
+export const WorkExperienceInputs = [
+  {
+    id: "employer",
+    type: "text",
+    label: "Employer",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+  {
+    id: "title",
+    type: "text",
+    label: "Job title",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+  {
+    id: "startMonth",
+    type: "month",
+    label: "Start Month",
+    elementType: "select",
+    isRequired: false,
+    category: "",
+  },
+  {
+    id: "startYear",
+    type: "year",
+    label: "Start Year",
+    elementType: "select",
+    isRequired: false,
+    category: "",
+  },
+  {
+    id: "endMonth",
+    type: "month",
+    label: "End Month",
+    elementType: "select",
+    isRequired: false,
+    category: "",
+  },
+  {
+    id: "endYear",
+    type: "year",
+    label: "End Year",
+    elementType: "select",
+    isRequired: false,
+    category: "",
+  },
+  {
+    id: "description",
+    type: "text",
+    label: "Job description",
+    elementType: "textarea",
+    isRequired: false,
+    category: "",
+  },
+];
