@@ -56,7 +56,10 @@ export const PersonalInfo = ({ data }: PersonalInfoProps): JSX.Element => {
     setEditMode(true);
   };
 
-  const handleInputChange = (fieldName: string, value: string): void => {
+  const handleInputChange = (
+    fieldName: string,
+    value: string | number
+  ): void => {
     setPersonalInfo({
       ...personalInfo,
       [fieldName]: value,

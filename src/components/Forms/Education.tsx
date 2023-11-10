@@ -1,9 +1,10 @@
 import * as React from "react";
 import uniqid from "uniqid";
-import { EducationList } from "../Education/EducationList";
 import { EducationType } from "../../types/types";
 import { StyledButton } from "../Button/StyledButton";
-import { EducationForm } from "../Education/EducationForm";
+import { FormList } from "./FormList";
+import { Form } from "./Form";
+import { EducationInputs } from "../../data/inputData";
 import styles from "./Education.module.scss";
 
 type Mode = "preview" | "edit" | "add";
@@ -91,14 +92,17 @@ export const Education = ({ data }: EducationProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       {mode === "preview" && (
-        <EducationList
+        <FormList
+          titleType="institution"
           data={education}
           onEdit={handleEdit}
           onRemove={handleRemove}
         />
       )}
       {(mode === "edit" || mode === "add") && editedEducation && (
-        <EducationForm
+        <Form
+          dataType="education"
+          inputData={EducationInputs}
           data={editedEducation}
           cancel={handleCancel}
           onChange={handleInputChange}

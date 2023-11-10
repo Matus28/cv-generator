@@ -2,8 +2,9 @@ import * as React from "react";
 import uniqid from "uniqid";
 import { StyledButton } from "../Button/StyledButton";
 import { WorkExperienceType } from "../../types/types";
-import { WorkExperienceList } from "../WorkExperience/WorkExperienceList";
-import { WorkExperienceForm } from "../WorkExperience/WorkExperienceForm";
+import { FormList } from "./FormList";
+import { Form } from "./Form";
+import { WorkExperienceInputs } from "../../data/inputData";
 import styles from "./WorkExperience.module.scss";
 
 type Mode = "preview" | "edit" | "add";
@@ -94,14 +95,17 @@ export const WorkExperience = ({ data }: WorkExperienceProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       {mode === "preview" && (
-        <WorkExperienceList
+        <FormList
+          titleType="employer"
           data={workExperience}
           onEdit={handleEdit}
           onRemove={handleRemove}
         />
       )}
       {(mode === "edit" || mode === "add") && editedWorkExperience && (
-        <WorkExperienceForm
+        <Form
+          dataType="workExperience"
+          inputData={WorkExperienceInputs}
           data={editedWorkExperience}
           cancel={handleCancel}
           onChange={handleInputChange}
