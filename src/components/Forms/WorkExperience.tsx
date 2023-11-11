@@ -107,6 +107,7 @@ export const WorkExperience = ({ data }: WorkExperienceProps): JSX.Element => {
           dataType="workExperience"
           inputData={WorkExperienceInputs}
           data={editedWorkExperience}
+          isEditMode={true}
           cancel={handleCancel}
           onChange={handleInputChange}
           onSave={handleSave}
