@@ -104,6 +104,7 @@ export const Education = ({ data }: EducationProps): JSX.Element => {
           dataType="education"
           inputData={EducationInputs}
           data={editedEducation}
+          isEditMode={true}
           cancel={handleCancel}
           onChange={handleInputChange}
           onSave={handleSave}
