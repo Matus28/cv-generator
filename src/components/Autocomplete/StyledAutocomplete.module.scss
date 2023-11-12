@@ -1,2 +1,23 @@
-.wrapper {
+@use "../../style/style" as *;
+
+.tag {
+  color: $global__secondary-text;
+  background-color: $global__secondary-text-transparent;
+
+  &:hover {
+    background-color: $global__heading-background;
+  }
+
+  svg {
+    path {
+      color: $global__secondary-text;
+      opacity: 0.5;
+    }
+  }
+
+  svg:hover {
+    path {
+      opacity: 0.7;
+    }
+  }
 }

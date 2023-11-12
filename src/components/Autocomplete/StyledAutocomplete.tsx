@@ -1,5 +1,5 @@
 import { Autocomplete, Chip, TextField } from "@mui/material";
-// import styles from "./StyledAutocomplete.module.scss";
+import styles from "./StyledAutocomplete.module.scss";
 
 type StyledAutocomplete = {
   value: string | string[] | number;
@@ -19,19 +19,22 @@ export const StyledAutocomplete = (props: StyledAutocomplete): JSX.Element => {
   return (
     <Autocomplete
       multiple
-      id="tags-filled"
+      id="tags-outlined"
       options={[]}
       value={skills}
       defaultValue={skills}
       onChange={handleChange}
       fullWidth
       freeSolo
+      classes={{
+        tag: styles.tag,
+      }}
       renderTags={(value: readonly string[], getTagProps) =>
         value.map((option: string, index: number) => (
           <Chip variant="outlined" label={option} {...getTagProps({ index })} />
         ))
       }
-      renderInput={(params) => <TextField {...params} variant="filled" />}
+      renderInput={(params) => <TextField {...params} variant="outlined" />}
     />
   );
 };
