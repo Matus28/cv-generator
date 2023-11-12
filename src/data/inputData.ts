@@ -224,3 +224,22 @@ export const WorkExperienceInputs = [
     category: "",
   },
 ];
+
+export const SkillInputs = [
+  {
+    id: "field",
+    type: "text",
+    label: "Field",
+    elementType: "input",
+    isRequired: true,
+    category: "",
+  },
+  {
+    id: "skill",
+    type: "text",
+    label: "Skills",
+    elementType: "autocomplete",
+    isRequired: true,
+    category: "",
+  },
+];
