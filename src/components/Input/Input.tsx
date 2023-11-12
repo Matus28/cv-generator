@@ -1,3 +1,4 @@
+import { StyledAutocomplete } from "../Autocomplete/StyledAutocomplete";
 import { PhotoDialog } from "../Dialog/PhotoDialog";
 import { StyledSelect } from "../Select/StyledSelect";
 import styles from "./Input.module.scss";
@@ -8,8 +9,8 @@ interface InputProps {
   type: string;
   label: string;
   elementType: string;
-  value: string | number;
-  onChange: (fieldName: string, value: string | number) => void;
+  value: string | number | string[];
+  onChange: (fieldName: string, value: string | string[] | number) => void;
   isRequired?: boolean;
   isEditMode: boolean;
 }
@@ -28,6 +29,10 @@ export const Input = (props: InputProps): JSX.Element => {
   };
 
   const handleChangeDate = (newValue: number): void => {
+    props.onChange(props.id, newValue);
+  };
+
+  const handleChangeSkills = (newValue: string[]): void => {
     props.onChange(props.id, newValue);
   };
 
@@ -69,9 +74,12 @@ export const Input = (props: InputProps): JSX.Element => {
       {props.elementType === "select" && (
         <StyledSelect
           type={props.type}
-          value={props.value}
+          value={props.value as string}
           onChange={handleChangeDate}
         />
+      )}
+      {props.elementType === "autocomplete" && (
+        <StyledAutocomplete value={props.value} onChange={handleChangeSkills} />
       )}
     </div>
   );
