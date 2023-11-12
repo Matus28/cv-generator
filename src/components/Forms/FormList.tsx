@@ -1,10 +1,14 @@
-import { EducationType, WorkExperienceType } from "../../types/types";
+import {
+  EducationType,
+  SkillType,
+  WorkExperienceType,
+} from "../../types/types";
 import { FormElement } from "./FormElement";
 import styles from "./FormList.module.scss";
 
 type FormListProps = {
   titleType: string;
-  data: EducationType[] | WorkExperienceType[];
+  data: EducationType[] | WorkExperienceType[] | SkillType[];
   onEdit: (id: string) => void;
   onRemove: (id: string) => void;
 };
@@ -14,7 +18,10 @@ export const FormList = (props: FormListProps): JSX.Element => {
     <div className={styles.wrapper}>
       <ul>
         {props.data.map(
-          (element: EducationType | WorkExperienceType, index: number) => (
+          (
+            element: EducationType | WorkExperienceType | SkillType,
+            index: number
+          ) => (
             <FormElement
               key={index}
               elementId={element.id}
@@ -23,6 +30,8 @@ export const FormList = (props: FormListProps): JSX.Element => {
                   ? element.institution
                   : props.titleType === "employer" && "employer" in element
                   ? element.employer
+                  : props.titleType === "field" && "field" in element
+                  ? element.field
                   : ""
               }
               onEdit={props.onEdit}

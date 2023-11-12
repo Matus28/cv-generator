@@ -2,13 +2,18 @@ import * as React from "react";
 import {
   EducationType,
   PersonalInfoType,
+  SkillType,
   WorkExperienceType,
 } from "../../types/types";
 import { StyledButton } from "../Button/StyledButton";
 import { Input } from "../Input/Input";
 import styles from "./Form.module.scss";
 
-type FormData = PersonalInfoType | EducationType | WorkExperienceType;
+type FormData =
+  | PersonalInfoType
+  | EducationType
+  | WorkExperienceType
+  | SkillType;
 
 type FormProps = {
   dataType: string;
@@ -53,6 +58,8 @@ export const Form = (props: FormProps): JSX.Element => {
         return styles.education;
       case "workExperience":
         return styles.work;
+      case "skill":
+        return styles.skill;
       default:
         return "";
     }
