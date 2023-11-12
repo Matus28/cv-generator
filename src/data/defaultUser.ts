@@ -63,4 +63,16 @@ export const defaultUserData = {
       Creating final documentation for customers.`,
     },
   ],
+  skill: [
+    {
+      id: "s1",
+      field: "Frontend",
+      skill: ["HTML", "CSS", "JavaScript", "Typescript"],
+    },
+    {
+      id: "s2",
+      field: "Backend",
+      skill: ["Node.js", "Express", "MySQL", "MongoDB"],
+    },
+  ],
 };
