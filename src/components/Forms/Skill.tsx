@@ -45,7 +45,7 @@ export const Skill = ({ data }: SkillProps): JSX.Element => {
 
   const handleInputChange = (
     fieldName: string,
-    value: string | number
+    value: string | string[] | number
   ): void => {
     if (editedSkill) {
       setEditedSkill({

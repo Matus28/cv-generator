@@ -46,7 +46,7 @@ export const PersonalInfo = ({ data }: PersonalInfoProps): JSX.Element => {
 
   const handleInputChange = (
     fieldName: string,
-    value: string | number
+    value: string | string[] | number
   ): void => {
     setPrevPersonalInfo({
       ...prevPersonalInfo,

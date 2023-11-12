@@ -54,7 +54,7 @@ export const Education = ({ data }: EducationProps): JSX.Element => {
 
   const handleInputChange = (
     fieldName: string,
-    value: string | number
+    value: string | string[] | number
   ): void => {
     if (editedEducation) {
       setEditedEducation({

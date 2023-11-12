@@ -55,7 +55,7 @@ export const WorkExperience = ({ data }: WorkExperienceProps): JSX.Element => {
 
   const handleInputChange = (
     fieldName: string,
-    value: string | number
+    value: string | string[] | number
   ): void => {
     if (editedWorkExperience) {
       setEditedWorkExperience({

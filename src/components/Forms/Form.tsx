@@ -21,7 +21,7 @@ type FormProps = {
   data: FormData;
   isEditMode: boolean;
   cancel: () => void;
-  onChange: (fieldName: string, value: string | number) => void;
+  onChange: (fieldName: string, value: string | string[] | number) => void;
   onSave: () => void;
   onToggleEdit?: () => void;
 };
