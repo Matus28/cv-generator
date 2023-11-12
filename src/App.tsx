@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Accordion } from "./components/Accordion/Accordion";
 import { PersonalInfo } from "./components/Forms/PersonalInfo";
-import { Skills } from "./components/Forms/Skills";
+import { Skill } from "./components/Forms/Skill";
 import { WorkExperience } from "./components/Forms/WorkExperience";
 import { OutputCV } from "./components/OutputCV/OutputCV";
 import { BsFillPersonFill, BsFillMouse2Fill } from "react-icons/bs";
@@ -28,7 +28,7 @@ const App = (): JSX.Element => {
           <WorkExperience data={userData.workExperience} />
         </Accordion>
         <Accordion title="Skills" icon={<BsFillMouse2Fill />}>
-          <Skills />
+          <Skill data={userData.skill} />
         </Accordion>
       </div>
       <div className={styles.rightPanel}>
