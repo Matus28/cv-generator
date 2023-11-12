@@ -36,8 +36,15 @@ export interface WorkExperienceType {
   description: string;
 }
 
+export interface SkillType {
+  id: string;
+  field: string;
+  skill: string[];
+}
+
 export interface UserDataType {
   personalInformation: PersonalInfoType;
   education: EducationType[];
   workExperience: WorkExperienceType[];
+  skill: SkillType[];
 }
