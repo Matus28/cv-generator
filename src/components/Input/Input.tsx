@@ -4,7 +4,7 @@ import { StyledSelect } from "../Select/StyledSelect";
 import styles from "./Input.module.scss";
 import { TextField, TextareaAutosize } from "@mui/material";
 
-interface InputProps {
+type InputProps = {
   id: string;
   type: string;
   label: string;
@@ -13,7 +13,7 @@ interface InputProps {
   onChange: (fieldName: string, value: string | string[] | number) => void;
   isRequired?: boolean;
   isEditMode: boolean;
-}
+};
 
 export const Input = (props: InputProps): JSX.Element => {
   const handleChange = (

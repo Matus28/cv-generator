@@ -16,12 +16,12 @@ import styles from "./PhotoDialog.module.scss";
 import { DragAndDrop } from "../DragAndDrop/DragAndDrop";
 import { StyledButton } from "../Button/StyledButton";
 
-interface PhotoDialogProps {
+type PhotoDialogProps = {
   label: string;
   value: string;
   onChange: (photo: string) => void;
   isEditMode: boolean;
-}
+};
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {

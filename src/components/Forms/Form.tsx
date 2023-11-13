@@ -26,7 +26,7 @@ type FormProps = {
   onToggleEdit?: () => void;
 };
 
-interface inputConfigType {
+type inputConfigType = {
   id: string;
   type: string;
   label: string;
@@ -34,7 +34,7 @@ interface inputConfigType {
   isRequired: boolean;
   newSection?: string;
   category: string;
-}
+};
 
 export const Form = (props: FormProps): JSX.Element => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {

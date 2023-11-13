@@ -3,13 +3,13 @@ import { Button, TextField } from "@mui/material";
 import UserProfile from "../../assets/user-profile-icon.svg";
 import styles from "./DragAndDrop.module.scss";
 
-interface DragAndDropProps {
+type DragAndDropProps = {
   preview: string;
   value: string;
   onSetPreview: React.Dispatch<React.SetStateAction<string>>;
   onChange: (photo: string) => void;
   onSetOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+};
 
 export const DragAndDrop = (props: DragAndDropProps): JSX.Element => {
   const [dragActive, setDragActive] = React.useState<boolean>(false);

@@ -2,11 +2,11 @@ import * as React from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import styles from "./Accordion.module.scss";
 
-interface AccordionProps {
+type AccordionProps = {
   title: string;
   icon?: React.ReactNode;
   children: React.ReactNode;
-}
+};
 
 export const Accordion = ({
   title,

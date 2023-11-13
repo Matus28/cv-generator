@@ -1,4 +1,4 @@
-export interface PersonalInfoType {
+export type PersonalInfoType = {
   firstName: string;
   lastName: string;
   photo: string;
@@ -11,9 +11,9 @@ export interface PersonalInfoType {
   linkedIn: string;
   github: string;
   description: string;
-}
+};
 
-export interface EducationType {
+export type EducationType = {
   id: string;
   institution: string;
   department: string;
@@ -23,9 +23,9 @@ export interface EducationType {
   startYear: number;
   endMonth: number;
   endYear: number;
-}
+};
 
-export interface WorkExperienceType {
+export type WorkExperienceType = {
   id: string;
   employer: string;
   title: string;
@@ -34,17 +34,17 @@ export interface WorkExperienceType {
   endMonth: number;
   endYear: number;
   description: string;
-}
+};
 
-export interface SkillType {
+export type SkillType = {
   id: string;
   field: string;
   skill: string[];
-}
+};
 
-export interface UserDataType {
+export type UserDataType = {
   personalInformation: PersonalInfoType;
   education: EducationType[];
   workExperience: WorkExperienceType[];
   skill: SkillType[];
-}
+};

@@ -3,11 +3,11 @@ import DefaultImage from "../../assets/upload-icon.svg";
 import styles from "./PhotoButton.module.scss";
 import { Button } from "@mui/material";
 
-interface PhotoButtonProps {
+type PhotoButtonProps = {
   value: string;
   onOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isEditMode: boolean;
-}
+};
 
 export const PhotoButton = (props: PhotoButtonProps): JSX.Element => {
   const handleClick = (): void => {

@@ -8,11 +8,11 @@ import styles from "./WorkExperienceForm.module.scss";
 type WorkExperienceFormProps = {
   data: WorkExperienceType;
   cancel: () => void;
-  onChange: (fieldName: string, value: string | number) => void;
+  onChange: (fieldName: string, value: string | string[] | number) => void;
   onSave: () => void;
 };
 
-interface inputConfigType {
+type inputConfigType = {
   id: string;
   type: string;
   label: string;
@@ -20,7 +20,7 @@ interface inputConfigType {
   isRequired: boolean;
   newSection?: string;
   category: string;
-}
+};
 
 export const WorkExperienceForm = (
   props: WorkExperienceFormProps
